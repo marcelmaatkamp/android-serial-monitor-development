@@ -15,5 +15,5 @@ docker-compose run desktop sh -c "mkdir -p ~/.ssh && echo `cat ~/.ssh/id_rsa.pub
 ## Start Microsoft Remote Desktop 
 
 ```
- rdp://localhost (alpine/alpine)
+rdp://docker_host (alpine/alpine)
 ```
