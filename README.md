@@ -1,11 +1,18 @@
 # android-serial-monitor-development
 
-# Start desktop
+## Start desktop
+
 ```
-docker-compose up
+docker-compose up -d
 ```
 
-# Microsoft Remote Desktop 
+## Upload public ssh key
+
+```
+docker-compose run desktop sh -c "mkdir -p ~/.ssh && echo `cat ~/.ssh/id_rsa.pub` > ~/.ssh/authorized_keys"
+```
+
+## Start Microsoft Remote Desktop 
 
 ```
  rdp://localhost (alpine/alpine)
