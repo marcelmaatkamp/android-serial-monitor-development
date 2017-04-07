@@ -5,16 +5,27 @@ services:
   image: docker:dind
   restart: always
   privileged: true
+
+ smb: 
+  image: grossws/smbd
+  restart: "always"
+  ports:
+   - 445:445
+  volumes:
+   - smb:/data
  
  desktop:
-  build:
-   context: desktop/
-  # image: marcelmaatkamp/alpine-xfce4-xrdp
+  image: danielguerra/alpine-xrdp-dind:3.5
   restart: always
+  privileged: true
   ports:
    - "3389:3389"
    - "4848:22"
+   - "5901:5901"
   environment: 
    - DOCKER_HOST=tcp://docker:2375
-   - BOE=BLA
- 
+  volumes:
+   - smb:/data
+
+volumes:
+ smb: 
