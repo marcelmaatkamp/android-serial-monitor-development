@@ -6,14 +6,15 @@
 docker-compose up -d
 ```
 
-## Upload public ssh key
+## SSH
 
 ```
 docker-compose run desktop sh -c "mkdir -p ~/.ssh && echo `cat ~/.ssh/id_rsa.pub` > ~/.ssh/authorized_keys"
+ssh -p 4848 -D 3128 alpine@localhost
 ```
 
-## Start Microsoft Remote Desktop 
+## RDP
 
 ```
-rdp://docker_host (alpine/alpine)
+rdp://localhost:3389 (alpine/alpine)
 ```
